@@ -20,7 +20,7 @@
 
 #ifndef MODEL_HPP
 #define MODEL_HPP
-
+#include <stdint.h> 
 #include <QObject>
 
 class MidiDriver;

@@ -149,7 +149,7 @@ void MidiDriver::poll(){
 		mMutex->unlock();
 		return;
 	} else
-		count = Pm_Read(mMidiIn, &msg, 1);
+		count = (PmError)Pm_Read(mMidiIn, &msg, 1);
 	mMutex->unlock();
 
 	while(count > 0){
@@ -301,7 +301,7 @@ void MidiDriver::poll(){
 		mMutex->lock();
 		//read some more
 		if(mMidiIn)
-			count = Pm_Read(mMidiIn, &msg, 1);
+			count = (PmError)Pm_Read(mMidiIn, &msg, 1);
 		else {
 			mReading = false;
 			mMutex->unlock();
